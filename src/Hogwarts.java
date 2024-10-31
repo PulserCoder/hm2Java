@@ -25,6 +25,10 @@ public class Hogwarts {
         this.distanceTransgression = distanceTransgression;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
     public int getScore() {
         return 0;
     }
@@ -37,9 +41,6 @@ public class Hogwarts {
     }
 
     public String battle(Hogwarts other) {
-        if (getClass() != other.getClass()) {
-            return "Маги из разных факультетов не сражаются";
-        }
         if (getScore() < other.getScore()) {
             return other.fullName + " обладает большей мощностью магии, чем " + fullName;
         } else if (getScore() > other.getScore()) {

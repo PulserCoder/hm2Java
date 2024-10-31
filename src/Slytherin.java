@@ -69,5 +69,15 @@ public class Slytherin extends Hogwarts {
     public int getScore() {
         return score;
     }
+
+    public String battle(Slytherin other) {
+        if (getScore() < other.getScore()) {
+            return other.getFullName() + " обладает большей мощностью магии, чем " + getFullName();
+        } else if (getScore() > other.getScore()) {
+            return getFullName() + " обладает большей мощностью магии, чем " + other.getFullName();
+        } else {
+            return "Ничья среди: " + other.getFullName() + " и " + getFullName();
+        }
+    }
 }
 //

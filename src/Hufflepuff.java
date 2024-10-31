@@ -48,4 +48,13 @@ public class Hufflepuff extends Hogwarts {
         return score;
     }
 
+    public String battle(Hufflepuff other) {
+        if (getScore() < other.getScore()) {
+            return other.getFullName() + " обладает большей мощностью магии, чем " + getFullName();
+        } else if (getScore() > other.getScore()) {
+            return getFullName() + " обладает большей мощностью магии, чем " + other.getFullName();
+        } else {
+            return "Ничья среди: " + other.getFullName() + " и " + getFullName();
+        }
+    }
 }
