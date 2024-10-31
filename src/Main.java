@@ -21,15 +21,11 @@ public class Main {
         bicycle.wheelsCount = 2;
         bicycle2.wheelsCount = 2;
 
-        ServiceStation station_bicycle = new ServiceStationBicycle();
-        ServiceStation station_car = new ServiceStationCar();
-        ServiceStation station_truck = new ServiceStationTruck();
-
-        station_car.check(car);
-        station_car.check(car2);
-        station_bicycle.check(bicycle);
-        station_bicycle.check(bicycle2);
-        station_truck.check(truck);
-        station_truck.check(truck2);
+        car.check();
+        car2.check();
+        truck.check();
+        truck2.check();
+        bicycle.check();
+        bicycle2.check();
     }
 }
