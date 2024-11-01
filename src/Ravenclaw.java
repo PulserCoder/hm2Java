@@ -1,61 +1,24 @@
 public class Ravenclaw extends Hogwarts {
-    private int witty;
-    private int mind;
-    private int wise;
-    private int creative;
-    private int score;
-
-    public Ravenclaw(String fullName, int magicPower, int distanceTransgression, int witty, int mind, int wise, int creative) {
-        super(fullName, magicPower, distanceTransgression);
-        this.witty = witty;
-        this.mind = mind;
-        this.wise = wise;
-        this.creative = creative;
-        this.score = magicPower + distanceTransgression + witty + mind + wise + creative;
-    }
-
-    public int getWitty() {
-        return witty;
-    }
-
-    public void setWitty(int witty) {
-        this.witty = witty;
-    }
-
-    public int getMind() {
-        return mind;
-    }
-
-    public void setMind(int mind) {
-        this.mind = mind;
-    }
-
-    public int getWise() {
-        return wise;
-    }
-
-    public void setWise(int wise) {
-        this.wise = wise;
-    }
-
-    public int getCreative() {
-        return creative;
-    }
-
-    public void setCreative(int creative) {
-        this.creative = creative;
+    public Ravenclaw(String fullName, int nobility, int honor, int courage, int diligence, int loyalty, int honesty, int intelligence, int wisdom, int wit, int creativity, int cunning, int determination, int ambition, int resourcefulness, int desireForPower) {
+        super(fullName, nobility, honor, courage, diligence, loyalty, honesty, intelligence, wisdom, wit, creativity, cunning, determination, ambition, resourcefulness, desireForPower);
+        this.score = nobility + honor + courage + diligence + loyalty + honesty + intelligence + wisdom + wit + creativity + cunning + determination + ambition + resourcefulness + desireForPower;
     }
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\nwitty: " + witty +
-                "\nmind: " + mind +
-                "\nwise: " + wise +
-                "\ncreative: " + creative;
+        return "Ученик Ravenclaw: " + super.toString();
     }
 
-    public int getScore() {
-        return score;
+    public String whoIsBetter(Ravenclaw other) {
+        int myScore = getIntelligence() + getWisdom() + getWit() + getCreativity();
+        int otherScore = other.getIntelligence() + other.getWisdom() + other.getWit() + other.getCreativity();
+
+        if (myScore > otherScore) {
+            return getFullName() + " побеждает с счетом " + myScore;
+        } else if (myScore < otherScore) {
+            return other.getFullName() + " побеждает с счетом " + otherScore;
+        } else {
+            return "Ничья :) счет " + myScore;
+        }
     }
 }

@@ -1,51 +1,24 @@
 public class Hufflepuff extends Hogwarts {
-    private int industriousness;
-    private int loyalty;
-    private int honesty;
-    private int score;
-
-    public Hufflepuff(String fullName, int magicPower, int distanceTransgression, int industriousness, int loyalty, int honesty) {
-        super(fullName, magicPower, distanceTransgression);
-        this.industriousness = industriousness;
-        this.loyalty = loyalty;
-        this.honesty = honesty;
-        this.score = magicPower + distanceTransgression + loyalty + honesty + industriousness;
-    }
-
-    public int getIndustriousness() {
-        return industriousness;
-    }
-
-    public void setIndustriousness(int industriousness) {
-        this.industriousness = industriousness;
-    }
-
-    public int getLoyalty() {
-        return loyalty;
-    }
-
-    public void setLoyalty(int loyalty) {
-        this.loyalty = loyalty;
-    }
-
-    public int getHonesty() {
-        return honesty;
-    }
-
-    public void setHonesty(int honesty) {
-        this.honesty = honesty;
+    public Hufflepuff(String fullName, int nobility, int honor, int courage, int diligence, int loyalty, int honesty, int intelligence, int wisdom, int wit, int creativity, int cunning, int determination, int ambition, int resourcefulness, int desireForPower) {
+        super(fullName, nobility, honor, courage, diligence, loyalty, honesty, intelligence, wisdom, wit, creativity, cunning, determination, ambition, resourcefulness, desireForPower);
+        this.score = nobility + honor + courage + diligence + loyalty + honesty + intelligence + wisdom + wit + creativity + cunning + determination + ambition + resourcefulness + desireForPower;
     }
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\nindustriousness: " + industriousness +
-                "\nloyalty: " + loyalty +
-                "\nhonesty: " + honesty;
+        return "Ученик Hufflepuff: " + super.toString();
     }
 
-    public int getScore() {
-        return score;
-    }
+    public String whoIsBetter(Hufflepuff other) {
+        int myScore = getDiligence() + getLoyalty() + getHonesty();
+        int otherScore = other.getDiligence() + other.getLoyalty() + other.getHonesty();
 
+        if (myScore > otherScore) {
+            return getFullName() + " побеждает с счетом " + myScore;
+        } else if (myScore < otherScore) {
+            return other.getFullName() + " побеждает с счетом " + otherScore;
+        } else {
+            return "Ничья :) счет " + myScore;
+        }
+    }
 }

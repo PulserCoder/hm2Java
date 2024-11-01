@@ -1,51 +1,24 @@
 public class Gryffindor extends Hogwarts {
-    private int nobility;
-    private int honor;
-    private int bravery;
-    private int score;
-
-
-    public Gryffindor(String fullName, int magicPower, int distanceTransgression, int nobility, int honor, int bravery) {
-        super(fullName, magicPower, distanceTransgression);
-        this.nobility = nobility;
-        this.honor = honor;
-        this.bravery = bravery;
-        this.score = magicPower + distanceTransgression + honor + bravery + nobility;
-    }
-
-    public int getNobility() {
-        return nobility;
-    }
-
-    public void setNobility(int nobility) {
-        this.nobility = nobility;
-    }
-
-    public int getHonor() {
-        return honor;
-    }
-
-    public void setHonor(int honor) {
-        this.honor = honor;
-    }
-
-    public int getBravery() {
-        return bravery;
-    }
-
-    public void setBravery(int bravery) {
-        this.bravery = bravery;
+    public Gryffindor(String fullName, int nobility, int honor, int courage, int diligence, int loyalty, int honesty, int intelligence, int wisdom, int wit, int creativity, int cunning, int determination, int ambition, int resourcefulness, int desireForPower) {
+        super(fullName, nobility, honor, courage, diligence, loyalty, honesty, intelligence, wisdom, wit, creativity, cunning, determination, ambition, resourcefulness, desireForPower);
+        this.score = nobility + honor + courage + diligence + loyalty + honesty + intelligence + wisdom + wit + creativity + cunning + determination + ambition + resourcefulness + desireForPower;
     }
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\nnobility: " + nobility +
-                "\nhonor: " + honor +
-                "\nbravery: " + bravery;
+        return "Ученик Gryffindor: " + super.toString();
     }
 
-    public int getScore() {
-        return score;
+    public String whoIsBetter(Gryffindor other) {
+        int myScore = getNobility() + getHonor() + getCourage();
+        int otherScore = other.getNobility() + other.getHonor() + other.getCourage();
+
+        if (myScore > otherScore) {
+            return getFullName() + " побеждает с счетом " + myScore;
+        } else if (myScore < otherScore) {
+            return other.getFullName() + " побеждает с счетом " + otherScore;
+        } else {
+            return "Ничья :) счет " + myScore;
+        }
     }
 }

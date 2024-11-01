@@ -1,73 +1,24 @@
 public class Slytherin extends Hogwarts {
-    private int trick;
-    private int determination;
-    private int ambition;
-    private int resourcefulness;
-    private int thirstForPower;
-    private int score;
-
-    public Slytherin(String fullName, int magicPower, int distanceTransgression, int trick, int determination, int ambition, int resourcefulness, int thirstForPower) {
-        super(fullName, magicPower, distanceTransgression);
-        this.trick = trick;
-        this.determination = determination;
-        this.ambition = ambition;
-        this.resourcefulness = resourcefulness;
-        this.thirstForPower = thirstForPower;
-        this.score = magicPower + distanceTransgression + ambition + resourcefulness + thirstForPower + determination + trick;
-    }
-
-    public int getTrick() {
-        return trick;
-    }
-
-    public void setTrick(int trick) {
-        this.trick = trick;
-    }
-
-    public int getDetermination() {
-        return determination;
-    }
-
-    public void setDetermination(int determination) {
-        this.determination = determination;
-    }
-
-    public int getAmbition() {
-        return ambition;
-    }
-
-    public void setAmbition(int ambition) {
-        this.ambition = ambition;
-    }
-
-    public int getResourcefulness() {
-        return resourcefulness;
-    }
-
-    public void setResourcefulness(int resourcefulness) {
-        this.resourcefulness = resourcefulness;
-    }
-
-    public int getThirstForPower() {
-        return thirstForPower;
-    }
-
-    public void setThirstForPower(int thirstForPower) {
-        this.thirstForPower = thirstForPower;
+    public Slytherin(String fullName, int nobility, int honor, int courage, int diligence, int loyalty, int honesty, int intelligence, int wisdom, int wit, int creativity, int cunning, int determination, int ambition, int resourcefulness, int desireForPower) {
+        super(fullName, nobility, honor, courage, diligence, loyalty, honesty, intelligence, wisdom, wit, creativity, cunning, determination, ambition, resourcefulness, desireForPower);
+        this.score = nobility + honor + courage + diligence + loyalty + honesty + intelligence + wisdom + wit + creativity + cunning + determination + ambition + resourcefulness + desireForPower;
     }
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\ntrick: " + trick +
-                "\ndetermination: " + determination +
-                "\nambition: " + ambition +
-                "\nresourcefulness: " + resourcefulness +
-                "\nthirstForPower: " + thirstForPower;
+        return "Ученик Slytherin: " + super.toString();
     }
 
-    public int getScore() {
-        return score;
+    public String whoIsBetter(Slytherin other) {
+        int myScore = getCunning() + getDetermination() + getAmbition() + getResourcefulness() + getDesireForPower();
+        int otherScore = other.getCunning() + other.getDetermination() + other.getAmbition() + other.getResourcefulness() + other.getDesireForPower();
+
+        if (myScore > otherScore) {
+            return getFullName() + " побеждает с счетом " + myScore;
+        } else if (myScore < otherScore) {
+            return other.getFullName() + " побеждает с счетом " + otherScore;
+        } else {
+            return "Ничья :) счет " + myScore;
+        }
     }
 }
-//
